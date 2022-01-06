@@ -1,12 +1,14 @@
 {% extends 'base.html' %} 
 {% block head %} 
 <title>
-<h1 style='text-align: center'>Task Master</h1>
+<h1 style='text-align: center'>Jacobs Flask Todo Manager</h1>
 </title>
 {% endblock %} {% block body %}
 <div class='content'>
 
-
+    {% if todos|length < 1 %}
+        <h4 style='text-align: center'>You currently have 0 todos.
+    {% else %}
   <table>
     <tr>
       <th>Task</th>
@@ -24,9 +26,10 @@
       </td>
     </tr>
     {% endfor %}
+    {% endif %}
   </table>
   <form action='/' method='POST'>
     <input type='text' name='content' id='content'>
-    <input type='submit' value='Submit'>
+    <input type='submit' value='Add Todo'>
 </div>
 {% endblock %}
