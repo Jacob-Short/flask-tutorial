@@ -1,5 +1,25 @@
-{% extends 'base.html' %} {% block head %}
-<h1>Head of Index Template</h1>
-{% endblock %} {% block body %}
-<h2>Body of Index Template</h2>
+{% extends 'base.html' %} {% block head %} {% endblock %} {% block body %}
+<div>
+  <h1>Task Master</h1>
+
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Added</th>
+      <th>Actions</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>
+        <a href=""> Delete </a>
+        <br />
+        <a href=""> Update </a>
+      </td>
+    </tr>
+  </table>
+  <form action='/' method='POST'>
+    <input type='text' name='content' id='content'>
+    <input type='submit' value='task'>
+</div>
 {% endblock %}
