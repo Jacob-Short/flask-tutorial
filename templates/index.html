@@ -1,7 +1,7 @@
 {% extends 'base.html' %} 
 {% block head %} 
 <title>
-<h1>Task Master</h1>
+<h1 style='text-align: center'>Task Master</h1>
 </title>
 {% endblock %} {% block body %}
 <div>
@@ -14,10 +14,10 @@
     </tr>
     {% for todo in todos %}
     <tr>
-      <td>{{ todo.content }}</td>
+      <td class='content'>{{ todo.content }}</td>
       <td>{{ todo.date_created.date() }}</td>
       <td>
-        <a href=""> Delete </a>
+        <a href="/delete/{{ todo.id }}"> Delete </a>
         <br />
         <a href=""> Update </a>
       </td>
@@ -26,6 +26,6 @@
   </table>
   <form action='/' method='POST'>
     <input type='text' name='content' id='content'>
-    <input type='submit' value='task'>
+    <input type='submit' value='Submit'>
 </div>
 {% endblock %}

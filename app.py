@@ -34,11 +34,25 @@ def index():
             db.session.commit()
             return redirect("/")
         except Exception as e:
+            print(e)
             return "There was a issue adding your Todo"
     else:
         # options = [all, first, last, ...]
         todos = Todo.query.order_by(Todo.date_created).all()
         return render_template("index.html", todos=todos)
+
+
+@app.route("/delete/<int:id>")
+def delete_todo(id):
+    todo_to_delete = Todo.query.get_or_404(id)
+
+    try:
+        db.session.delete(todo_to_delete)
+        db.session.commit()
+        return redirect("/")
+    except Exception as e:
+        print(e)
+        return "There was a problem deleting that todo"
 
 
 if __name__ == "__main__":
