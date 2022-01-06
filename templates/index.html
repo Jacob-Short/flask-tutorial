@@ -4,7 +4,8 @@
 <h1 style='text-align: center'>Task Master</h1>
 </title>
 {% endblock %} {% block body %}
-<div>
+<div class='content'>
+
 
   <table>
     <tr>
@@ -19,7 +20,7 @@
       <td>
         <a href="/delete/{{ todo.id }}"> Delete </a>
         <br />
-        <a href=""> Update </a>
+        <a href="/update/{{ todo.id }}"> Update </a>
       </td>
     </tr>
     {% endfor %}
