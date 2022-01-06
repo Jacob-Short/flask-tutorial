@@ -1,5 +1,35 @@
-{% extends 'base.html' %} {% block head %}
-<h1>Head of Index Template</h1>
+{% extends 'base.html' %} 
+{% block head %} 
+<title>
+<h1 style='text-align: center'>Jacobs Flask Todo Manager</h1>
+</title>
 {% endblock %} {% block body %}
-<h2>Body of Index Template</h2>
+<div class='content'>
+
+    {% if todos|length < 1 %}
+        <h4 style='text-align: center'>You currently have 0 todos.
+    {% else %}
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Added</th>
+      <th>Actions</th>
+    </tr>
+    {% for todo in todos %}
+    <tr>
+      <td class='content'>{{ todo.content }}</td>
+      <td>{{ todo.date_created.date() }}</td>
+      <td>
+        <a href="/delete/{{ todo.id }}"> Delete </a>
+        <br />
+        <a href="/update/{{ todo.id }}"> Update </a>
+      </td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+  </table>
+  <form action='/' method='POST'>
+    <input type='text' name='content' id='content'>
+    <input type='submit' value='Add Todo'>
+</div>
 {% endblock %}
